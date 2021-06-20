@@ -8,7 +8,7 @@ spec:
   selector:
     matchLabels:
       app: goserver
-  replicas: 10
+  replicas: 2
   template:
     metadata:
       labels:
@@ -16,7 +16,16 @@ spec:
     spec:
       containers:
         - name: goserver
-          image: "jonasegf/hello-go:v5.2"
+          image: "jonasegf/hello-go:v5.3.1"
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: 8080
+            periodSeconds: 5
+            failureThreshold: 3
+            timeoutSeconds: 1
+            successThreshold: 1
+
           envFrom:
             - configMapRef:
                 name: goserver-env
