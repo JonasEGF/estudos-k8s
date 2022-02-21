@@ -1,13 +1,15 @@
-Iniciar o kubernetes
-minikube start 
 
+### Iniciar o kubernetes
+
+    minikube start 
+    
 Aplicar as configs
-cd k8s 
-kubectl apply -f . (ou oq for mudar)
 
-Logar no docker
-docker login
+    cd k8s 
+    kubectl apply -f . 
 
-Gerar imagem docker
-docker build -t jonasegf/hello-go:vx.x
-docker push jonasegf/hello-go:vx.x
+#### Gerar imagem docker
+
+    docker build -t jonasegf/hello-go:vx.x
+    
+    docker push jonasegf/hello-go:vx.x
